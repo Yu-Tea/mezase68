@@ -10,6 +10,12 @@
 
 ⭐️ピタリ賞だとなにか表示する？？？？？
 
+Rubocop導入済
+コードチェク
+bundle exec rubocop
+自動修正
+bundle exec rubocop -A
+
 ---
 
 ##  プロジェクト構成
