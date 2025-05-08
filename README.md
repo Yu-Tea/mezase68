@@ -23,9 +23,12 @@ bundle exec rubocop -A
 
 time-stopper/         ← プロジェクトのルートディレクトリ
 ├── index.html        ← アプリのメインHTMLファイル（ビュー部分）
+├── timer-test.html   ← タイマーの開発・確認用ページ
 ├── css/              ← スタイルシート用のディレクトリ（ビューのデザイン部分）
 │   └── style.css
+│   └── timer.css     ← タイマー用のCSS（最終的に使わなくてもいいかも）
 └── js/               ← JavaScriptのロジック用ディレクトリ（動作部分）
     └── main.js
-    
+│   └── timer.js      ← タイマー用のjs
+
     # mezase68
