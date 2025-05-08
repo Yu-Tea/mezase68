@@ -1,1 +1,36 @@
 /* HTMLで作った画面の見た目を整える場所 */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #F7F1CC; /* 背景色 */
+    
+    display: flex;
+    justify-content: center; /* 横方向の中央揃え */
+    align-items: center;     /* 縦方向の中央揃え */
+    flex-direction: column;  /* 縦方向にレイアウト（ボタンとタイトルを縦に並べる） */
+  }
+  
+  h1 {
+    position: absolute;
+    top: 50px;       /* 上から50pxの位置 */
+    left: 50%;       /* 横方向に中央揃え */
+    transform: translateX(-50%); /* 横中央調整 */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;  /* 好きな色に変えてOK */
+  }
+  
+  button {
+    padding: 1em 2em;
+    font-size: 1.5rem;
+    background-color: #4CAF50; /* ボタンの背景色 */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #FFA100; /* ホバー時に背景色をオレンジに変更 */
+  }
