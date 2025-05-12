@@ -1,22 +1,42 @@
+<!-- このhtmlから一部コピーして正式なページに貼り付けてください。貼り付ける箇所は下記になります。 -->
+<!-- 1：TOPページに貼り付けるOGP画像用の設定。すでに設定済みの場合はツイッター表示用に最後の1行だけ追加でOK -->
+<!-- 2：タイマー部分。これはタイマー用ページに貼り付けてください。 -->
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 下記はOGP画像の設定＆ツイッター共有時の表示の設定。TOPページに貼り付けて正式な文章＆URLに変更してください -->
+  <!-- ちなみに画像のURLは絶対パスで表記しないとダメなので書き換える際は注意すること！ -->
+  <meta property="og:title" content="アプリ名に書き換える" />
+  <meta property="og:description" content="ページ説明文に書き換える" />
+  <meta property="og:image" content="https://example.com/image/ogp.png" />
+  <meta property="og:url" content="https://example.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- OGP画像の設定＆ツイッター共有時の表示の設定はここまで -->
   <title>タイマーのテスト用ページ</title>
-  <link rel="stylesheet" href="css/timer.css">
+  <!-- 下記のCSSはタイマーの数字を仮でサイズ調整する用。正式なデザインが決まったらそっちを反映させること -->
+  <style>
+  #timer {
+    font-size: 8rem;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  </style>
 </head>
 <body>
   <div align="center">
     <h1>初級モードのタイマー</h1>
     <!-- 初級のタイマーの仕組みはここから -->
-    <p id="display">0.0</p>
+    <p id="timer">0.0</p>
     <p id="message">スタートボタンを押してね</p>
-    <button id="startBtn">スタート</button>
-    <br><br><button id="testPerfect">テスト用の強制6.8秒ボタン</button> <!-- これは後で消す！！！ -->
+    <button id="startStopBtn">スタート</button>
+    <br><br><button id="testPerfect">テスト用の強制6.8秒ボタン</button> <!-- このボタンは正式版では消すこと！！！ -->
+    <br><br><button id="tweetBtn" style="display: none;">Xで結果をシェア</button>
     <script src="js/timer.js"></script>
     <!-- 初級のタイマーの仕組みはここまで -->
-    
   </div>
 </body>
 </html>
