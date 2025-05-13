@@ -8,9 +8,7 @@ body {
     display: flex;
     justify-content: center; /* 横方向の中央揃え */
     align-items: center;     /* 縦方向の中央揃え */
-    flex-direction: column;  /* 縦方向にレイアウト（ボタンとタイトルを縦に並べる） */
-  }
-  
+  }  
   h1 {
     position: absolute;
     top: 50px;       /* 上から50pxの位置 */
@@ -20,6 +18,7 @@ body {
     font-weight: bold;
     color: #333;  /* 好きな色に変えてOK */
   }
+  /* ゲーム画面 */
   
   button {
     padding: 1em 2em;
@@ -34,3 +33,39 @@ body {
   button:hover {
     background-color: #FFA100; /* ホバー時に背景色をオレンジに変更 */
   }
+
+  body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fdf5c3;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#timer-display {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+button {
+  display: block;
+  width: 200px;
+  margin: 10px auto;
+  padding: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffcc66;
+  color: #000;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffa100;
+}
+  /* memo */
