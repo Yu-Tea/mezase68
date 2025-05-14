@@ -1,12 +1,10 @@
 /* HTMLで作った画面の見た目を整える場所 */
 /* style.css の先頭に書く！ */
+/* 全体のスタイル.あとフォント変えてみたい */
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-/* 全体のスタイル.あとフォント変えてみたい */
-body {
   font-family: sans-serif;
   background-color: #F7F1CC;
   color: #333;
