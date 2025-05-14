@@ -87,3 +87,42 @@ h1 {
 #tweetBtn {
   background-color: #fdb230;
 }
+/* スマホ用CSS */
+/* スマホサイズ以下の場合だけ適用されるCSS */
+/* ▼ スマホ用スタイル（768px以下） */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+
+  .main-image {
+    width: 60%;
+    max-width: 160px;
+    margin: 10px auto;
+  }
+
+  #timer {
+    font-size: 4rem;
+  }
+
+  #message {
+    font-size: 1.2rem;
+  }
+
+  #result img {
+    width: 80px;
+  }
+
+  #beginnerBtn,
+  #startStopBtn,
+  #tweetBtn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+}
