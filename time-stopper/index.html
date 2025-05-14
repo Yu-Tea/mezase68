@@ -1,25 +1,20 @@
+<!--メイン画面-->
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <title>STOPWATCH GAME</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
-    <body>
-        <div id="start-screen">
-            <h1><span>STOPWATCH</span><br><span>GAME</span></h1>
-            <img src="img/stopwatch.png" alt="ストップウォッチの画像" class="main-image" />
-            <button id="start-btn">START</button>
-        </div>
-
-        <!-- ゲーム画面 -->
-        <div id="game-screen" style="display: none;">
-            <h2>目指せ <strong>6.8</strong> 秒</h2>
-            <div id="timer-display">0.00</div>
-            <button id="start-timer-btn">START</button>
-            <button id="stop-timer-btn">STOP</button>
-        </div>
-
-        <script src="js/main.js" defer></script>
-    </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--OGPはゲーム結果だけシェアするからindex.htmlにはいらないですよね？？？-->
+  <title>目指せ6.8秒</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="start-screen">
+    <h1>目指せ6.8秒</h1>
+    <img src="roba_main.png" alt="メイン画像" class="main-image" />
+    <!--type="button"ないと動作不良おこす？js で動作処理指定するなら必要要-->
+    <button id="beginner-btn">初級</button>
+  </div>
+</body>
+<!--jsでなにか動き追加するならjs読み込むコード記載要って思ったけど画面移行で必要　どのフィルダになります？-->
 </html>
