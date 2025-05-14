@@ -1,71 +1,89 @@
 /* HTMLで作った画面の見た目を整える場所 */
+/* style.css の先頭に書く！ */
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-color: #F7F1CC; /* 背景色 */
-    
-    display: flex;
-    justify-content: center; /* 横方向の中央揃え */
-    align-items: center;     /* 縦方向の中央揃え */
-  }  
-  h1 {
-    position: absolute;
-    top: 50px;       /* 上から50pxの位置 */
-    left: 50%;       /* 横方向に中央揃え */
-    transform: translateX(-50%); /* 横中央調整 */
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;  /* 好きな色に変えてOK */
-  }
-  /* ゲーム画面 */
-  
-  button {
-    padding: 1em 2em;
-    font-size: 1.5rem;
-    background-color: #4CAF50; /* ボタンの背景色 */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #FFA100; /* ホバー時に背景色をオレンジに変更 */
-  }
-
-  body {
-  font-family: 'Arial', sans-serif;
-  background-color: #fdf5c3;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 全体のスタイル.あとフォント変えてみたい */
+body {
+  font-family: sans-serif;
+  background-color: #F7F1CC;
+  color: #333;
   text-align: center;
 }
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+/* 画面ごとのパーツにclassやidをつけてCSSを書く */
+/* タイトル */
+h1 {
+  font-size: 3.5rem;
+  margin-top: 30px;
+  color: #744208;
 }
 
-#timer-display {
-  font-size: 4rem;
+.main-image {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+#timer {
+  font-size: 7rem;
   font-weight: bold;
   margin: 20px 0;
 }
 
-button {
-  display: block;
-  width: 200px;
-  margin: 10px auto;
-  padding: 15px;
+#message {
   font-size: 1.5rem;
-  font-weight: bold;
-  border: none;
+  color: #555;
+  margin: 20px 0;
+}
+
+#result img {
+  width: 100px;
+  margin-top: 20px;
+}
+/* ボタンをデザイン */
+/* 初級ボタンのスタイル #はid属性*/
+#beginnerBtn {
+  background-color: #fac365;
+  color: white;
+  padding: 10px 30px;
   border-radius: 8px;
-  background-color: #ffcc66;
-  color: #000;
+  border: none;
+  font-size: 1.0rem;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #ffa100;
+#beginnerBtn:hover {
+  background-color: #fdb230;
 }
-  /* memo */
+
+/* スタート・ストップ・リセットボタンのスタイル .はクラス属性*/
+#startStopBtn {
+  background-color: #fac365;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.0rem;
+  cursor: pointer;
+}
+
+#startStopBtn {
+  background-color: #fdb230;
+}
+/* ツイート用ボタンのスタイル */
+#tweetBtn {
+  background-color: #fac365;;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.0rem;
+  cursor: pointer;
+}
+
+#tweetBtn {
+  background-color: #fdb230;
+}
