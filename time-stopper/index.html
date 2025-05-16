@@ -3,6 +3,18 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
+  <!-- スマホ表示設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ちょっとこのXの設定わからないので教えて欲しい-->
+  <!-- 下記はOGP画像の設定＆ツイッター共有時の表示の設定。TOPページに貼り付けて正式な文章＆URLに変更してください -->
+  <!-- ちなみに画像のURLは絶対パスで表記しないとダメなので書き換える際は注意すること！ -->
+  <meta property="og:title" content="アプリ名に書き換える" />
+  <meta property="og:description" content="ページ説明文に書き換える" />
+  <meta property="og:image" content="https://example.com/image/ogp.png" />
+  <meta property="og:url" content="https://example.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- OGP画像の設定＆ツイッター共有時の表示の設定はここまで -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--OGPはゲーム結果だけシェアするからindex.htmlにはいらないですよね？？？-->
   <title>目指せ6.8秒</title>
@@ -11,9 +23,8 @@
 <body>
   <div id="start-screen">
     <h1>目指せ6.8秒</h1>
-    <img src="roba_main.png" alt="メイン画像" class="main-image" />
-    <!--type="button"ないと動作不良おこす？js で動作処理指定するなら必要要-->
-    <button id="beginner-btn">初級</button>
+    <img src="img/roba_main.png" alt="メイン画像" class="main-image" />
+    <button id="beginnerBtn" onclick="location.href='beginner.html'">初級</button>
   </div>
 </body>
 <!--jsでなにか動き追加するならjs読み込むコード記載要って思ったけど画面移行で必要　どのフィルダになります？-->
