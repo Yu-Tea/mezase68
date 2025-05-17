@@ -1,0 +1,30 @@
+/* タイマー下に表示するロバの画像用の設定 */
+#messageContainer {
+  text-align: center;
+  position: relative;
+  width: 200px; /* 表示したいサイズに合わせて調整 */
+  height: 200px; /* widthを変えたらこっちも変更すること */
+  margin-bottom: 30px; /* 下側に来るボタンとの余白をこれで調整 */
+}
+
+#messageContainer img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+
+#defaultImg {
+  position: relative;
+  z-index: 0;
+  display: block;
+}
+
+/* ボタン下の余白を設定。デザインにあわせて調整してください */
+button {
+  margin-bottom: 10px;
+}
+
+/* タイマー専用のCSSならstyle.cssからこっちに移動させるのもありかもですね */

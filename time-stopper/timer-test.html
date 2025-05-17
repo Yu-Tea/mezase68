@@ -1,42 +1,62 @@
-<!-- このhtmlから一部コピーして正式なページに貼り付けてください。貼り付ける箇所は下記になります。 -->
-<!-- 1：TOPページに貼り付けるOGP画像用の設定。すでに設定済みの場合はツイッター表示用に最後の1行だけ追加でOK -->
-<!-- 2：タイマー部分。これはタイマー用ページに貼り付けてください。 -->
+<!-- 
+このhtmlから一部コピーして正式なページに貼り付けてください。貼り付ける箇所は下記になります。
+■タイマーの結果に合わせてロバの画像が切り替わる設定が追加されました。タイマー部分のコピペを再度よろしくです！！！！
+■背景の上下に画像を並べる表示をこっちで作ってみました！この感じで良さそうならstyle.cssに貼り付けて調整してみてください！
+■タイマー用のtimer.cssを作ったので、beginner.htmlページにも適用させてください！
+ -->
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 下記はOGP画像の設定＆ツイッター共有時の表示の設定。TOPページに貼り付けて正式な文章＆URLに変更してください -->
-  <!-- ちなみに画像のURLは絶対パスで表記しないとダメなので書き換える際は注意すること！ -->
-  <meta property="og:title" content="アプリ名に書き換える" />
-  <meta property="og:description" content="ページ説明文に書き換える" />
-  <meta property="og:image" content="https://example.com/image/ogp.png" />
-  <meta property="og:url" content="https://example.com" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <!-- OGP画像の設定＆ツイッター共有時の表示の設定はここまで -->
   <title>タイマーのテスト用ページ</title>
-  <!-- 下記のCSSはタイマーの数字を仮でサイズ調整する用。正式なデザインが決まったらそっちを反映させること -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- 下記をbeginner.htmlにもコピペしてください！ -->
+  <link rel="stylesheet" href="css/timer.css" />
   <style>
-  #timer {
-    font-size: 8rem;
-    font-weight: bold;
-    margin: 20px 0;
+  /* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝背景画像を上下で並べる設定ここから＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+  /* 下記の調整は無駄なスクロールバー発生を阻止するための設定です。 */
+  html, body {
+    min-height: 100vh;
+    overflow-x: hidden;
   }
+  /* こんな感じで画像2つ並べて1つ目・2つ目の設定をそれぞれ書いてあげればOKです！（サイズみたいに同じならまとめて1つでOK） */
+  body {
+    background-image: url(img/carrot.png), url(img/carrot.png); 
+    background-position: top center, bottom center;
+    background-repeat: repeat-x, repeat-x;
+    background-size: 70px; /* イメージしているサイズに合わせて調整してください。 */
+  }
+  /* 上下にニンジン画像を入れるとテキストやボタンが被らないよう余白が必要になってくるので、<body>内に<main>も追加して
+  　　下記のような調整入れると良いかと。こっちもニンジンの画像サイズ調整した場合は数値変更してください。 */
+  main{
+    padding: 50px 0;
+  } 
+  /* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝背景画像を上下で並べる設定ここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
   </style>
 </head>
 <body>
-  <div align="center">
-    <h1>初級モードのタイマー</h1>
+  <main>
+    <div align="center">
+      <h2>初級モードのタイマー</h2>
     <!-- 初級のタイマーの仕組みはここから -->
     <p id="timer">0.0</p>
-    <p id="message">スタートボタンを押してね</p>
+    <div id="messageContainer">
+      <img id="defaultImg" src="img/roba_main.png" alt="スタート前" />
+      <img id="dokidokiImg" src="img/roba_dokidoki.png" alt="ドキドキ" />
+      <img id="perfectImg" src="img/roba_perfect.png" alt="ピッタリ" />
+      <img id="closeImg" src="img/roba_oshii.png" alt="惜しい" />
+      <img id="failImg" src="img/roba_zannen.png" alt="残念" />
+      <img id="tryImg" src="img/roba_ganbare.png" alt="がんばれ！" />
+      <img id="gameoverImg" src="img/rpba_game_over.png" alt="ゲームオーバー" />
+    </div>
     <button id="startStopBtn">スタート</button>
-    <br><br><button id="testPerfect">テスト用の強制6.8秒ボタン</button> <!-- このボタンは正式版では消すこと！！！ -->
-    <br><br><button id="tweetBtn" style="display: none;">Xで結果をシェア</button>
+    <br><button id="testPerfect">テスト用の強制6.8秒ボタン</button> <!-- このボタンは正式版では消すこと！！！ -->
+    <br><button id="tweetBtn" style="display: none;">Xで結果をシェア</button>
     <script src="js/timer.js"></script>
     <!-- 初級のタイマーの仕組みはここまで -->
-  </div>
+    </div>
+  </main>
 </body>
 </html>
