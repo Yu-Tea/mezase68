@@ -1,5 +1,4 @@
 const display = document.getElementById("timer");
-const message = document.getElementById("message");
 const button = document.getElementById("startStopBtn");
 const tweetBtn = document.getElementById("tweetBtn");
 
@@ -7,8 +6,23 @@ let startTime = null;
 let timerInterval = null;
 let isRunning = false;
 
+// 画像を非表示に
+function hideAllMessages() {
+  const ids = [
+    "defaultImg",
+    "dokidokiImg", "perfectImg", "closeImg",
+    "failImg", "tryImg", "gameoverImg"
+  ];
+  ids.forEach(id => {
+    document.getElementById(id).style.display = "none";
+  });
+}
+
 // タイマーをスタートときの仕組み
 function startTimer() {
+  hideAllMessages(); // すべて非表示に
+  document.getElementById("dokidokiImg").style.display = "block"; // ドキドキ表示
+
   startTime = performance.now();
   timerInterval = setInterval(() => {
     const elapsed = (performance.now() - startTime) / 1000;
@@ -18,7 +32,8 @@ function startTimer() {
     if (elapsed >= 9.9) {
       clearInterval(timerInterval);
       display.textContent = "9.9";
-      message.textContent = "ゲームオーバー！";
+      hideAllMessages(); // 全部非表示
+      document.getElementById("gameoverImg").style.display = "block"; // ゲームオーバー表示
       button.textContent = "リセット";
       isRunning = false;      
     }
@@ -27,8 +42,10 @@ function startTimer() {
 
 //タイマーの結果での分岐
 function judgeTime(finalTime) {
+  hideAllMessages(); // 全部非表示
+
   if (finalTime === 6.8) {
-    message.textContent = "ピッタリ！";
+    document.getElementById("perfectImg").style.display = "block";
     document.body.style.overflowX = "hidden";
     display.style.color = "#f55d10";
     display.style.transform = "scale(1.2)";
@@ -40,11 +57,11 @@ function judgeTime(finalTime) {
       document.body.style.overflowX = "";
     }, 500);
   } else if (finalTime === 6.7 || finalTime === 6.9) {
-    message.textContent = "惜しい！";
+    document.getElementById("closeImg").style.display = "block";
   } else if (finalTime >= 5.8 && finalTime <= 7.8) {
-    message.textContent = "残念…";
+    document.getElementById("failImg").style.display = "block";
   } else {
-    message.textContent = "頑張って！";
+    document.getElementById("tryImg").style.display = "block";
   }
 }
 
@@ -76,7 +93,8 @@ function stopTimer() {
 // 「リセット」ボタンを押してからの処理
 function resetTimer() {
   display.textContent = "0.0";
-  message.textContent = "スタートボタンを押してね！";
+  hideAllMessages();
+  document.getElementById("defaultImg").style.display = "block";
   display.classList.remove("bounce");
   button.textContent = "スタート";
   tweetBtn.style.display = "none";
@@ -91,7 +109,7 @@ button.addEventListener("click", () => {
 
   if (label === "スタート") {
     display.textContent = "0.0";
-    message.textContent = "ドキドキ…";
+    document.getElementById("dokidokiImg").style.display = "block";
     startTimer();
     button.textContent = "ストップ";
     isRunning = true;
@@ -102,6 +120,11 @@ button.addEventListener("click", () => {
   }
 });
 
+
+window.addEventListener("DOMContentLoaded", () => {
+  hideAllMessages();
+  document.getElementById("defaultImg").style.display = "block";
+});
 
 //＝＝＝＝＝＝＝＝＝＝＝＝6.8秒ピッタリで止めるテストボタン用＝＝＝＝＝＝＝＝＝＝＝＝
 function stopTimerTest() {
