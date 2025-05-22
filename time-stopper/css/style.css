@@ -10,12 +10,26 @@ body {
   color: #333;
   text-align: center;
 }
-/* 画面ごとのパーツにclassやidをつけてCSSを書く */
+/* 各セクション（タイトル・説明文・ボタンなど）のスタイル */
 /* タイトル */
 h1 {
   font-size: 3.5rem;
   margin-top: 30px;
   color: #744208;
+}
+
+/* 説明文 */
+.description {
+  text-align: center;         /* テキスト中央揃え */
+  max-width: 65%;             /* 幅を画面サイズに合わせて制限 */
+  margin: 20px auto;          /* 上下に余白を入れて中央寄せ */
+  font-size: 20px;            /* 文字サイズ */
+  line-height: 1.6;           /* 行間を少し広げて読みやすく */
+  color: #333;                /* テキストカラー（ダークグレー） */
+  background-color: #fff5e1;  /* 背景 */
+  padding: 5px;              /* 内側の余白 */
+  border-radius: 10px;        /* 角を丸くして柔らかく */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* ふんわり影 */
 }
 
 .main-image {
@@ -25,22 +39,6 @@ h1 {
   margin: 20px auto;
 }
 
-#timer {
-  font-size: 7rem;
-  font-weight: bold;
-  margin: 20px 0;
-}
-
-#message {
-  font-size: 1.5rem;
-  color: #555;
-  margin: 20px 0;
-}
-
-#result img {
-  width: 100px;
-  margin-top: 20px;
-}
 /* ボタンをデザイン */
 /* 初級ボタンのスタイル #はid属性*/
 #beginnerBtn {
@@ -68,12 +66,12 @@ h1 {
   cursor: pointer;
 }
 
-#startStopBtn {
+#startStopBtn:hover {
   background-color: #fdb230;
 }
 /* ツイート用ボタンのスタイル */
 #tweetBtn {
-  background-color: #fac365;;
+  background-color: #fac365;
   color: white;
   padding: 10px 30px;
   border-radius: 5px;
@@ -82,7 +80,21 @@ h1 {
   cursor: pointer;
 }
 
-#tweetBtn {
+#tweetBtn:hover {
+  background-color: #fdb230;
+}
+/* メインボタンのスタイル */
+#mainStopBtn {
+  background-color: #fac365;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+#mainStopBtn:hover {
   background-color: #fdb230;
 }
 /* スマホ用CSS */
