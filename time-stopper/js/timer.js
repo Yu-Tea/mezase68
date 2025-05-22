@@ -76,10 +76,10 @@ function stopTimer() {
   // ツイートボタン表示
   // 仕様上ハッシュタグに「.」を入れるとそこでタグが途切れてしまうので「6.8秒」表記が使えない…タイトルに入れるのは良くないかも…
   // ツイート時に表示される文章は仮のものなのでURL含め後で修正すること！！！！！！
-  tweetBtn.style.display = "inline-block";
+  tweetBtn.style.visibility = "visible";
   tweetBtn.addEventListener("click", () => {
     const time = parseFloat(display.textContent);
-    const tweetText = `目指せ6.8秒！タイマーを ${time.toFixed(1)} 秒で止めたよ！ #目指せ6_8秒 https://example.com`;
+    const tweetText = `目指せ6.8秒！タイマーを ${time.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://example.com`;
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
   
     window.open(tweetUrl, "_blank");
@@ -97,7 +97,7 @@ function resetTimer() {
   document.getElementById("defaultImg").style.display = "block";
   display.classList.remove("bounce");
   button.textContent = "スタート";
-  tweetBtn.style.display = "none";
+  tweetBtn.style.visibility = "hidden";;
   isRunning = false;
   display.style.color = "";
   display.style.transform = "";

@@ -1,15 +1,28 @@
 /* HTMLで作った画面の見た目を整える場所 */
 /* style.css の先頭に書く！ */
 /* 全体のスタイル.あとフォント変えてみたい */
+  /* 下記の調整は無駄なスクロールバー発生を阻止するための設定です。  */
+  html, body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
 body {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
   background-color: #F7F1CC;
   color: #333;
   text-align: center;
+  background-image: url(../img/carrot.png), url(../img/carrot.png); 
+  background-position: top center, bottom center;
+  background-repeat: repeat-x, repeat-x;
+  background-size: 70px;
 }
+ /* 上下にニンジン画像と被らないよう調整 */
+  main {
+    padding: 40px 0 70px;
+  }
 /* 各セクション（タイトル・説明文・ボタンなど）のスタイル */
 /* タイトル */
 h1 {
@@ -17,6 +30,8 @@ h1 {
   margin-top: 30px;
   color: #744208;
 }
+
+
 
 /* 説明文 */
 .description {
@@ -55,48 +70,33 @@ h1 {
   background-color: #fdb230;
 }
 
-/* スタート・ストップ・リセットボタンのスタイル .はクラス属性*/
-#startStopBtn {
-  background-color: #fac365;
-  color: white;
-  padding: 10px 30px;
-  border-radius: 5px;
-  border: none;
-  font-size: 1.0rem;
-  cursor: pointer;
-}
-
-#startStopBtn:hover {
-  background-color: #fdb230;
-}
-/* ツイート用ボタンのスタイル */
-#tweetBtn {
-  background-color: #fac365;
-  color: white;
-  padding: 10px 30px;
-  border-radius: 5px;
-  border: none;
-  font-size: 1.0rem;
-  cursor: pointer;
-}
-
-#tweetBtn:hover {
-  background-color: #fdb230;
-}
-/* メインボタンのスタイル */
+/* ボタンの各種設定 */
+#startStopBtn,
+#tweetBtn,
 #mainStopBtn {
   background-color: #fac365;
   color: white;
   padding: 10px 30px;
   border-radius: 5px;
   border: none;
-  font-size: 0.8rem;
+  font-size: 1.0rem;
   cursor: pointer;
 }
 
-#mainStopBtn:hover {
+#startStopBtn:hover,
+#tweetBtn:hover{
   background-color: #fdb230;
 }
+
+/* 戻るボタンだけ別色にしてみます */
+#mainStopBtn {
+  background-color: #aac0c6;
+}
+
+#mainStopBtn:hover {
+  background-color: #91b2bb;
+}
+
 /* スマホ用CSS */
 /* スマホサイズ以下の場合だけ適用されるCSS */
 /* ▼ スマホ用スタイル（768px以下） */

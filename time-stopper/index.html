@@ -2,27 +2,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <style>
-  /* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝背景画像を上下で並べる設定ここから＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
-  /* 下記の調整は無駄なスクロールバー発生を阻止するための設定です。  */
-  html, body {
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-  /* こんな感じで画像2つ並べて1つ目・2つ目の設定をそれぞれ書いてあげればOKです！（サイズみたいに同じならまとめて1つでOK） */
-  body {
-    background-image: url(img/carrot.png), url(img/carrot.png); 
-    background-position: top center, bottom center;
-    background-repeat: repeat-x, repeat-x;
-    background-size: 60px; /* イメージしているサイズに合わせて調整してください。 */
-  }
-  /* 上下にニンジン画像を入れるとテキストやボタンが被らないよう余白が必要になってくるので、<body>内に<main>も追加して
-  　　下記のような調整入れると良いかと。こっちもニンジンの画像サイズ調整した場合は数値変更してください。 */
-  main{
-    padding: 50px 0;
-  } 
-  /* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝背景画像を上下で並べる設定ここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
-  </style>
   <meta charset="UTF-8" />
   <!-- スマホ表示設定 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,8 +25,9 @@
   <div id="start-screen">
     <h1>ロバタイマー🫏</h1>
     <div class="description">
-        <p>やぁ！こんにちは！</p>
-        <p>スタートを押すと秒数がカウントされるから6.8秒ピッタリで止めてね！</p>
+        <p>やぁ！ロバだよ。ボクは68って数字が大好きなんだ〜！</p>
+        <p>タイマーゲームを作ってみたから、6.8秒で止めてみてよ。</p>
+        <p>下のボタンからゲーム画面に進めるよ！レッツ・ロバタイマー！</p>
       </div>
     <img src="img/roba_main.png" alt="メイン画像" class="main-image" />
     <button id="beginnerBtn" onclick="location.href='beginner.html'">初級</button>

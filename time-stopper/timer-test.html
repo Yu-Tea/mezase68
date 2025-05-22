@@ -16,30 +16,49 @@
   <link rel="stylesheet" href="css/timer.css" />
   <style>
   /* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝背景画像を上下で並べる設定ここから＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
-  /* 下記の調整は無駄なスクロールバー発生を阻止するための設定です。  */
-  html, body {
-    min-height: 100vh;
-    overflow-x: hidden;
+  /* セリフ部分のテキスト表示を調整したバージョンです。参考にどうぞ！  */
+  .sample {
+  text-align: center;         /* テキスト中央揃え */
+  width: 520px;             /* 幅を画面サイズに合わせて制限 */
+  margin: 20px auto;          /* 上下に余白を入れて中央寄せ */
+  font-size: 1em;            /* 文字サイズ */
+  line-height: 1.6;           /* 行間を少し広げて読みやすく */
+  color: #333;                /* テキストカラー（ダークグレー） */
+  background-color: #fff5e1;  /* 背景 */
+  padding: 20px;              /* 内側の余白 */
+  border-radius: 10px;        /* 角を丸くして柔らかく */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* ふんわり影 */
   }
-  /* こんな感じで画像2つ並べて1つ目・2つ目の設定をそれぞれ書いてあげればOKです！（サイズみたいに同じならまとめて1つでOK） */
-  body {
-    background-image: url(img/carrot.png), url(img/carrot.png); 
-    background-position: top center, bottom center;
-    background-repeat: repeat-x, repeat-x;
-    background-size: 70px; /* イメージしているサイズに合わせて調整してください。 */
+  .sample p {
+  margin: 0;
+}
+  /* スマホ時のみ改行される設定用 */
+  .br-sp {
+    display: none;
   }
-  /* 上下にニンジン画像を入れるとテキストやボタンが被らないよう余白が必要になってくるので、<body>内に<main>も追加して
-  　　下記のような調整入れると良いかと。こっちもニンジンの画像サイズ調整した場合は数値変更してください。 */
-  main{
-    padding: 50px 0;
-  } 
+
+@media (max-width: 768px) {
+  .sample {
+  max-width: 80%;             /* 幅を画面サイズに合わせて制限 */
+  padding: 10px 20px;              /* 内側の余白 */
+    }
+  /* スマホ時のみ改行される設定用 */
+  .br-sp {
+        display: block;
+    }
+  }
   /* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝背景画像を上下で並べる設定ここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
   </style>
 </head>
 <body>
   <main>
-    <div align="center">
+
       <h2>初級モードのタイマー</h2>
+      <div class="sample">
+        <p>やぁ！ロバだよ。<br class="br-sp">ボクは68って数字が大好きなんだ〜！<br>
+        タイマーゲームを作ってみたから、<br class="br-sp">6.8秒で止めてみてよ。<br>
+        下のボタンからゲーム画面に進めるよ！<br class="br-sp">レッツ・ロバタイマー！</p>
+      </div>
     <!-- 初級のタイマーの仕組みはここから -->
     <p id="timer">0.0</p>
     <div id="messageContainer">
@@ -51,9 +70,12 @@
       <img id="tryImg" src="img/roba_ganbare.png" alt="がんばれ！" />
       <img id="gameoverImg" src="img/rpba_game_over.png" alt="ゲームオーバー" />
     </div>
+    <div class="flex-button">
     <button id="startStopBtn">スタート</button>
-    <br><button id="testPerfect">テスト用の強制6.8秒ボタン</button> <!-- このボタンは正式版では消すこと！！！ -->
-    <br><button id="tweetBtn" style="display: none;">Xで結果をシェア</button>
+    <button id="testPerfect">テスト用の強制6.8秒ボタン</button> <!-- このボタンは正式版では消すこと！！！ -->
+    <button id="tweetBtn">Xで結果をシェア</button>
+    <button id="mainStopBtn" onclick="location.href='index.html'">戻る</button>
+    </div>
     <script src="js/timer.js"></script>
     <!-- 初級のタイマーの仕組みはここまで -->
     </div>
