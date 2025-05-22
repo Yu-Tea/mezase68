@@ -3,7 +3,7 @@
   text-align: center;
   position: relative;
   width: 200px; /* 表示したいサイズに合わせて調整 */
-  height: 200px; /* widthを変えたらこっちも変更すること */
+  height: 200px; /* widthを変えたらこっちも変更すること  */
   margin-bottom: 30px; /* 下側に来るボタンとの余白をこれで調整 */
 }
 

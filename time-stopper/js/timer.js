@@ -18,7 +18,6 @@ function hideAllMessages() {
   });
 }
 
-
 // タイマーをスタートときの仕組み
 function startTimer() {
   hideAllMessages(); // すべて非表示に
