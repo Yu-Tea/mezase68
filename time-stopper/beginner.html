@@ -1,24 +1,78 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <style>
+  /* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝背景画像を上下で並べる設定ここから＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+  /* 下記の調整は無駄なスクロールバー発生を阻止するための設定です。  */
+  html, body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  /* こんな感じで画像2つ並べて1つ目・2つ目の設定をそれぞれ書いてあげればOKです！（サイズみたいに同じならまとめて1つでOK） */
+  body {
+    background-image: url(img/carrot.png), url(img/carrot.png); 
+    background-position: top center, bottom center;
+    background-repeat: repeat-x, repeat-x;
+    background-size: 60px; /* イメージしているサイズに合わせて調整してください。 */
+  }
+  /* 上下にニンジン画像を入れるとテキストやボタンが被らないよう余白が必要になってくるので、<body>内に<main>も追加して
+  　　下記のような調整入れると良いかと。こっちもニンジンの画像サイズ調整した場合は数値変更してください。 */
+  main {
+    padding: 50px 0;
+  }
+
+  /* 画像表示用コンテナ */
+  #messageContainer {
+    position: relative;
+    width: 100px;      /* 画像サイズ調整 */
+    height: 100px;     /* 画像サイズ調整 */
+    margin: 20px auto; /* 上下余白＆中央寄せ */
+  }
+  #messageContainer img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+  }
+  /* 最初に表示する画像だけ表示 */
+  #messageContainer img#defaultImg {
+    display: block;
+  }
+  </style>
   <meta charset="UTF-8">
-   <!--ブラウザ検索結果タイトル-->
+  <!--ブラウザ検索結果タイトル-->
   <title>初級モードのタイマー</title>
   <!--CSSファイルを読み込む-->
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/timer.css" />
 </head>
 <body>
+  <main>
     <h1>初級</h1>
     <!-- 初級のタイマーの仕組みはここから -->
     <p id="timer">0.0</p>
     <p id="message">スタートボタンを押してね</p>
+
+    <!-- 画像表示用コンテナ -->
+    <div id="messageContainer">
+      <img id="defaultImg" src="img/roba_main.png" alt="ロバの基本画像">
+      <img id="dokidokiImg" src="img/roba_dokidoki.png" alt="ロバのドキドキ画像">
+      <img id="perfectImg" src="img/roba_perfect.png" alt="ロバのパーフェクト画像">
+      <img id="closeImg" src="img/roba_oshii.png" alt="ロバの惜しい画像">
+      <img id="failImg" src="img/roba_zannen.png" alt="ロバの残念画像">
+      <img id="tryImg" src="img/roba_ganbare.png" alt="ロバの頑張れ画像">
+      <img id="gameoverImg" src="img/rpba_game_over.png" alt="ゲームオーバー画像">
+    </div>
+
     <div id="result"></div>
     <button id="startStopBtn">スタート</button>
-    <br><br><button id="testPerfect">テスト用の強制6.8秒ボタン</button> <!-- このボタンは正式版では消すこと！！！ -->
     <br><br><button id="tweetBtn" style="display: none;">Xで結果をシェア</button>
+    <br><br><button id="mainStopBtn" onclick="location.href='index.html'">メイン画面</button>
     <script src="js/timer.js"></script>
     <!-- 初級のタイマーの仕組みはここまで -->
-  </div>
+  </main>
 </body>
 </html>
-<!--メイン画面に戻るボタン作成要-->
