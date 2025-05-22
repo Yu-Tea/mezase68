@@ -2,22 +2,20 @@
 #timer {
   font-size: 5rem;
   font-weight: bold;
-  margin: 20px 0;
+  margin: 0;
 }
 
 #messageContainer {
+  margin:0 auto 30px;
   text-align: center;
   position: relative;
   width: 200px; /* 表示したいサイズに合わせて調整 */
   height: 200px; /* widthを変えたらこっちも変更すること  */
-  margin-bottom: 30px; /* 下側に来るボタンとの余白をこれで調整 */
 }
 
 #messageContainer img {
   width: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 1;
   display: none;
 }
@@ -27,10 +25,19 @@
   z-index: 0;
   display: block;
 }
+/* ツイートボタンを隠す */
+#tweetBtn {
+    visibility:hidden;
+  }
 
-/* ボタン下の余白を設定。デザインにあわせて調整してください */
-button {
-  margin-bottom: 10px;
+/* ボタンの並びを調整 */
+.flex-button {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  max-width: 250px;
+  margin:0 auto;
 }
 
 #message {
@@ -49,4 +56,11 @@ button {
 #result img {
   width: 100px;
   margin-top: 20px;
+}
+
+/* スマホ用CSS */
+@media (max-width: 768px) {
+  #timer {
+    font-size: 4rem;
+  }
 }
