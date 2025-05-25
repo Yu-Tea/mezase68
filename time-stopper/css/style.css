@@ -6,7 +6,6 @@
     min-height: 100vh;
     height: 100vh; 
     overflow-x: hidden;
-    overflow-y: hidden;      /* 縦スクロールを防ぐ */
   }
 
 body {
@@ -36,7 +35,6 @@ h1 {
 /* 説明文 */
 .description {
   text-align: center;         /* テキスト中央揃え */
-  max-width: 520px;
   max-width: 90%;           /* スマホでも画面に収まるようにする */
   width: 520px;             /* 幅を画面サイズに合わせて制限 */
   margin: 10px auto;          /* 上下に余白を入れて中央寄せ */
@@ -106,10 +104,6 @@ h1 {
 /* スマホサイズ以下の場合だけ適用されるCSS */
 /* ▼ スマホ用スタイル（768px以下） */
 @media (max-width: 768px) {
-  html, body {
-    height: 100vh;
-    overflow-y: hidden;
-  }
 
   main {
     padding: 5px 0 15px;  /* mainの上下余白をスマホ向けに圧縮 */
