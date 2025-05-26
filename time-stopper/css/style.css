@@ -4,6 +4,7 @@
   /* 下記の調整は無駄なスクロールバー発生を阻止するための設定です。  */
   html, body {
     min-height: 100vh;
+    height: 100vh; 
     overflow-x: hidden;
   }
 
@@ -21,37 +22,39 @@ body {
 }
  /* 上下にニンジン画像と被らないよう調整 */
   main {
-    padding: 40px 0 70px;
+    padding: 20px 0 40px;
   }
 /* 各セクション（タイトル・説明文・ボタンなど）のスタイル */
 /* タイトル */
 h1 {
   font-size: 3.5rem;
-  margin-top: 30px;
+  margin-top: 10px;
   color: #744208;
 }
-
-
 
 /* 説明文 */
 .description {
   text-align: center;         /* テキスト中央揃え */
-  max-width: 65%;             /* 幅を画面サイズに合わせて制限 */
-  margin: 20px auto;          /* 上下に余白を入れて中央寄せ */
-  font-size: 20px;            /* 文字サイズ */
-  line-height: 1.6;           /* 行間を少し広げて読みやすく */
+  max-width: 90%;           /* スマホでも画面に収まるようにする */
+  width: 520px;             /* 幅を画面サイズに合わせて制限 */
+  margin: 10px auto;          /* 上下に余白を入れて中央寄せ */
+  font-size: 1em;            /* 文字サイズ */
+  line-height: 1.2;           /* 行間を少し広げて読みやすく */
   color: #333;                /* テキストカラー（ダークグレー） */
   background-color: #fff5e1;  /* 背景 */
-  padding: 5px;              /* 内側の余白 */
+  padding: 10px;              /* 内側の余白 */
   border-radius: 10px;        /* 角を丸くして柔らかく */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* ふんわり影 */
+  }
+  .description p {
+  margin: 0;
 }
 
 .main-image {
   width: 200px;
   height: auto;
   display: block;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 /* ボタンをデザイン */
@@ -101,38 +104,46 @@ h1 {
 /* スマホサイズ以下の場合だけ適用されるCSS */
 /* ▼ スマホ用スタイル（768px以下） */
 @media (max-width: 768px) {
-  body {
-    font-size: 14px;
-    padding: 10px;
+
+  main {
+    padding: 5px 0 15px;  /* mainの上下余白をスマホ向けに圧縮 */
   }
 
   h1 {
     font-size: 2rem;
-    margin-top: 20px;
+    margin-top: 40px;
+  }
+  .description {
+    font-size: 0.9rem;   /* ←追加で入れると読みやすくなる */
+    padding: 8px;       /* ←少し狭めてスマホ用に調整 */
+    line-height: 1.4;    /* ←行間少し広げると見やすい */
+  }
+  .main-image {
+    margin: 8px auto;     /* スマホ時の画像余白も少なく */
+    max-width: 100%;
+    height: auto;
+  }
+  #message {
+    max-width: 95%;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 10px auto;
+    padding: 10px;
   }
 
-  .main-image {
-    width: 60%;
-    max-width: 160px;
-    margin: 10px auto;
+  #messageContainer {
+    width: 150px;
+    height: 150px;
   }
 
   #timer {
-    font-size: 4rem;
-  }
-
-  #message {
-    font-size: 1.2rem;
-  }
-
-  #result img {
-    width: 80px;
+    font-size: 3rem;
   }
 
   #beginnerBtn,
   #startStopBtn,
   #tweetBtn {
-    font-size: 0.9rem;
-    padding: 8px 20px;
+    font-size: 0.85rem;
+    padding: 6px 16px;
   }
 }
