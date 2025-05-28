@@ -19,14 +19,6 @@ HTML / CSS
 
 Javasprict
 
-# デプロイ方法
-リポジトリをクローン
-bundle installで依存関係をインストール
-
-bundle exec ruby app.rb でローカル起動
-
-公開環境にデプロイ（Renderなど）
-
 # 作者
 このアプリはゆーてぃとおぴよによって開発されました。
 初めてのチーム作成しました
