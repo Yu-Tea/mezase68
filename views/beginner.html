@@ -6,9 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--ブラウザ検索結果タイトル-->
   <title>初級モードのタイマー</title>
-  <!--CSSファイルを読み込む-->
+  <!--CSSファイルと画像を先に読み込む-->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/timer.css" />
+  <link rel="preload" as="image" href="img/roba_main.png">
+  <link rel="preload" as="image" href="img/roba_dokidoki.png">
+  <link rel="preload" as="image" href="img/roba_perfect.png">
+  <link rel="preload" as="image" href="img/roba_oshii.png">
+  <link rel="preload" as="image" href="img/roba_zannen.png">
+  <link rel="preload" as="image" href="img/roba_ganbare.png">
+  <link rel="preload" as="image" href="img/rpba_game_over.png">
 </head>
 <body>
   <main>
@@ -17,21 +24,21 @@
     <p id="timer">0.0</p>
     <p id="message">タイマーを6.8秒で止めてね！</p>
 
-    <!-- 画像表示用コンテナ -->
+    <!-- 画像表示用 -->
     <div id="messageContainer">
-      <img id="defaultImg" src="img/roba_main.png" alt="ロバの基本画像">
-      <img id="dokidokiImg" src="img/roba_dokidoki.png" alt="ロバのドキドキ画像">
-      <img id="perfectImg" src="img/roba_perfect.png" alt="ロバのパーフェクト画像">
-      <img id="closeImg" src="img/roba_oshii.png" alt="ロバの惜しい画像">
-      <img id="failImg" src="img/roba_zannen.png" alt="ロバの残念画像">
-      <img id="tryImg" src="img/roba_ganbare.png" alt="ロバの頑張れ画像">
-      <img id="gameoverImg" src="img/rpba_game_over.png" alt="ゲームオーバー画像">
+      <img id="defaultImg" src="img/roba_main.png" alt="スタート前" />
+      <img id="dokidokiImg" src="img/roba_dokidoki.png" alt="ドキドキ" />
+      <img id="perfectImg" src="img/roba_perfect.png" alt="ピッタリ" />
+      <img id="closeImg" src="img/roba_oshii.png" alt="惜しい" />
+      <img id="failImg" src="img/roba_zannen.png" alt="残念" />
+      <img id="tryImg" src="img/roba_ganbare.png" alt="がんばれ！" />
+      <img id="gameoverImg" src="img/rpba_game_over.png" alt="ゲームオーバー" />
     </div>
 
     <div class="flex-button">
     <button id="startStopBtn">スタート</button>
     <button id="tweetBtn">Xで結果をシェア</button>
-    <button id="mainStopBtn" onclick="location.href='index.html'">戻る</button>
+    <button id="mainStopBtn" onclick="location.href='/'">戻る</button>
     </div>
     <script src="js/timer.js"></script>
     <!-- 初級のタイマーの仕組みはここまで -->

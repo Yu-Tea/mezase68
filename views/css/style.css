@@ -1,6 +1,3 @@
-/* HTMLで作った画面の見た目を整える場所 */
-/* style.css の先頭に書く！ */
-/* 全体のスタイル.あとフォント変えてみたい */
   /* 下記の調整は無駄なスクロールバー発生を阻止するための設定です。  */
   html, body {
     min-height: 100vh;
@@ -28,7 +25,7 @@ body {
 /* タイトル */
 h1 {
   font-size: 3.5rem;
-  margin-top: 10px;
+  margin-top: 30px;
   color: #744208;
 }
 
