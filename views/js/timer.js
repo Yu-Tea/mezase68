@@ -79,7 +79,7 @@ function stopTimer() {
   tweetBtn.style.visibility = "visible";
   tweetBtn.addEventListener("click", () => {
     const time = parseFloat(display.textContent);
-    const tweetText = `目指せ6.8秒！タイマーを ${time.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://example.com`;
+    const tweetText = `目指せ6.8秒！タイマーを ${time.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
   
     window.open(tweetUrl, "_blank");
