@@ -77,7 +77,7 @@ h1 {
   cursor: pointer;
 }
 
-#beginnerBtn:hover 
+#beginnerBtn:hover,
 #intermediateBtn:hover{
   background-color: #fdb230;
 }
