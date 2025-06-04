@@ -29,6 +29,7 @@
     <div id="messageContainer">
       <img id="defaultImg" src="img/roba_main.png" alt="スタート前" />
       <img id="dokidokiImg" src="img/roba_dokidoki.png" alt="ドキドキ" />
+      <img id="hatenaImg" src="img/roba_hatena.png" alt="あれ？" />
       <img id="perfectImg" src="img/roba_perfect.png" alt="ピッタリ" />
       <img id="closeImg" src="img/roba_oshii.png" alt="惜しい" />
       <img id="failImg" src="img/roba_zannen.png" alt="残念" />
@@ -37,10 +38,11 @@
     </div>
 
     <div class="flex-button">
-    <button id="startStopBtn">スタート</button>
-    <button id="tweetBtn">Xで結果をシェア</button>
-    <button id="mainStopBtn" onclick="location.href='/'">戻る</button>
+      <button id="tweetBtn">Xで結果をシェア</button>
+      <button id="startStopBtn">スタート</button>    
+      <button id="mainStopBtn" onclick="location.href='/'">戻る</button>
     </div>
+    <script>const mode = "shokyu";</script>
     <script src="js/timer.js"></script>
     <!-- 初級のタイマーの仕組みはここまで -->
   </main>

@@ -10,7 +10,7 @@ let isRunning = false;
 function hideAllMessages() {
   const ids = [
     "defaultImg",
-    "dokidokiImg", "perfectImg", "closeImg",
+    "dokidokiImg","hatenaImg", "perfectImg", "closeImg",
     "failImg", "tryImg", "gameoverImg"
   ];
   ids.forEach(id => {
@@ -24,9 +24,36 @@ function startTimer() {
   document.getElementById("dokidokiImg").style.display = "block"; // ドキドキ表示
 
   startTime = performance.now();
+  let hidden = false;
+
   timerInterval = setInterval(() => {
     const elapsed = (performance.now() - startTime) / 1000;
-    display.textContent = elapsed.toFixed(1);
+
+    // 3秒経過後に表示を変える（中級・上級用）
+    if (!hidden && elapsed >= 3.0) {
+      hidden = true;
+      if (mode === "chukyu" || mode === "jokyu") {
+        document.getElementById("dokidokiImg").style.display = "none";
+        document.getElementById("hatenaImg").style.display = "block"; // ← 中級・上級だけ画像変更
+      }   
+      if (mode === "chukyu") {
+        const intPart = Math.floor(elapsed);
+        display.innerHTML = `<span id="visiblePart">${intPart}.</span><span class="hatena">?</span>`;
+      } else if (mode === "jokyu") {
+        display.innerHTML = `<span class="hatena">?.?</span>`;
+      }
+    } else if (hidden && mode === "chukyu") { // ← 中級の一の位更新し続ける処理
+      const intPart = Math.floor(elapsed);
+      const visibleSpan = document.getElementById("visiblePart");
+      if (visibleSpan) {
+        visibleSpan.textContent = `${intPart}.`;
+      }
+    }
+
+    // 初級モードのときの処理
+    if (!hidden) {
+      display.textContent = elapsed.toFixed(1);
+    }
 
     // タイマーが9.9秒を超えたら強制停止させる
     if (elapsed >= 9.9) {
@@ -40,10 +67,26 @@ function startTimer() {
   }, 100);
 }
 
-//タイマーの結果での分岐
-function judgeTime(finalTime) {
-  hideAllMessages(); // 全部非表示
 
+
+
+// タイマーを止める時の仕組み
+function stopTimer() {
+  if (!isRunning) {
+    resetTimer();
+    return;
+  }
+
+  clearInterval(timerInterval);
+  isRunning = false;
+
+  const elapsed = (performance.now() - startTime) / 1000;
+  const finalTime = parseFloat(elapsed.toFixed(1));
+  display.textContent = finalTime.toFixed(1); // 本当の数値をここで表示
+
+
+  //タイマーの結果で画像を切替
+  hideAllMessages();
   if (finalTime === 6.8) {
     document.getElementById("perfectImg").style.display = "block";
     document.body.style.overflowX = "hidden";
@@ -63,26 +106,21 @@ function judgeTime(finalTime) {
   } else {
     document.getElementById("tryImg").style.display = "block";
   }
-}
-
-// タイマーを止める時の仕組み
-function stopTimer() {
-  clearInterval(timerInterval);
-  const finalTime = parseFloat(display.textContent);
-
-  // タイマーの結果を呼び出し
-  judgeTime(finalTime);
 
   // ツイートボタン表示
-  // 仕様上ハッシュタグに「.」を入れるとそこでタグが途切れてしまうので「6.8秒」表記が使えない…タイトルに入れるのは良くないかも…
-  // ツイート時に表示される文章は仮のものなのでURL含め後で修正すること！！！！！！
   tweetBtn.style.visibility = "visible";
   tweetBtn.addEventListener("click", () => {
-    const time = parseFloat(display.textContent);
-    const tweetText = `目指せ6.8秒！タイマーを ${time.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
-    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
-  
-    window.open(tweetUrl, "_blank");
+    let tweetText;
+    if (mode === "chukyu") {
+      tweetText = `目指せ6.8秒！中級モードでタイマーを ${elapsed.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
+    } else if (mode === "jokyu") {
+      tweetText = `目指せ6.8秒！上級モードでタイマーを ${elapsed.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
+    } else {
+      tweetText = `目指せ6.8秒！初級モードでタイマーを ${elapsed.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
+    }
+
+    const tweetURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;  
+    window.open(tweetURL, "_blank");
   });
 
   // ボタンを「リセット」にする
