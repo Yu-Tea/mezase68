@@ -54,9 +54,20 @@ h1 {
   margin: 10px auto;
 }
 
+/* 全体のボタンの並びを調整 */
+.flex-button {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  max-width: 250px;
+  margin:0 auto;
+}
+
 /* ボタンをデザイン */
-/* 初級ボタンのスタイル #はid属性*/
-#beginnerBtn {
+/* 初級・中級ボタンのスタイル #はid属性*/
+#beginnerBtn,
+#intermediateBtn {
   background-color: #fac365;
   color: white;
   padding: 10px 30px;
@@ -66,7 +77,8 @@ h1 {
   cursor: pointer;
 }
 
-#beginnerBtn:hover {
+#beginnerBtn:hover 
+#intermediateBtn:hover{
   background-color: #fdb230;
 }
 

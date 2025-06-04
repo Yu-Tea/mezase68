@@ -37,15 +37,6 @@
     visibility:hidden;
   }
 
-/* ボタンの並びを調整 */
-.flex-button {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap:10px;
-  max-width: 250px;
-  margin:0 auto;
-}
 
 /* 中級と上級で「？」を上下に動かすアニメーション用 */
 @keyframes floatQuestion {
