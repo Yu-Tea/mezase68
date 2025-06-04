@@ -5,6 +5,8 @@ const tweetBtn = document.getElementById("tweetBtn");
 let startTime = null;
 let timerInterval = null;
 let isRunning = false;
+let tweetText = "";
+let finalTime = 0.0;
 
 // 画像を非表示に
 function hideAllMessages() {
@@ -67,9 +69,6 @@ function startTimer() {
   }, 100);
 }
 
-
-
-
 // タイマーを止める時の仕組み
 function stopTimer() {
   if (!isRunning) {
@@ -81,9 +80,8 @@ function stopTimer() {
   isRunning = false;
 
   const elapsed = (performance.now() - startTime) / 1000;
-  const finalTime = parseFloat(elapsed.toFixed(1));
+  finalTime = parseFloat(elapsed.toFixed(1));
   display.textContent = finalTime.toFixed(1); // 本当の数値をここで表示
-
 
   //タイマーの結果で画像を切替
   hideAllMessages();
@@ -109,24 +107,31 @@ function stopTimer() {
 
   // ツイートボタン表示
   tweetBtn.style.visibility = "visible";
-  tweetBtn.addEventListener("click", () => {
-    let tweetText;
-    if (mode === "chukyu") {
-      tweetText = `目指せ6.8秒！中級モードでタイマーを ${elapsed.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
-    } else if (mode === "jokyu") {
-      tweetText = `目指せ6.8秒！上級モードでタイマーを ${elapsed.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
-    } else {
-      tweetText = `目指せ6.8秒！初級モードでタイマーを ${elapsed.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
-    }
-
-    const tweetURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;  
-    window.open(tweetURL, "_blank");
-  });
 
   // ボタンを「リセット」にする
   button.textContent = "リセット";
   isRunning = false;
 }
+
+// ツイート時のメッセージ
+tweetBtn.addEventListener("click", () => {
+  let tweetText;
+  if (mode === "chukyu") {
+    tweetText = `目指せ6.8秒！中級モードでタイマーを ${finalTime.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
+  } else if (mode === "jokyu") {
+    tweetText = `目指せ6.8秒！上級モードでタイマーを ${finalTime.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
+  } else {
+    tweetText = `目指せ6.8秒！初級モードでタイマーを ${finalTime.toFixed(1)} 秒で止めたよ！ #ロバタイマー https://roba-timer.onrender.com/`;
+  }
+
+  const tweetURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;  
+  window.open(tweetURL, "_blank");
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  hideAllMessages();
+  document.getElementById("defaultImg").style.display = "block";
+});
 
 // 「リセット」ボタンを押してからの処理
 function resetTimer() {
@@ -156,12 +161,6 @@ button.addEventListener("click", () => {
   } else if (label === "リセット") {
     resetTimer();
   }
-});
-
-
-window.addEventListener("DOMContentLoaded", () => {
-  hideAllMessages();
-  document.getElementById("defaultImg").style.display = "block";
 });
 
 //＝＝＝＝＝＝＝＝＝＝＝＝6.8秒ピッタリで止めるテストボタン用＝＝＝＝＝＝＝＝＝＝＝＝
