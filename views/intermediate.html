@@ -2,13 +2,11 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <!-- スマホ表示設定 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--ブラウザ検索結果タイトル-->
-  <title>ロバタイマー | 初級</title>
-  <!--CSSファイルと画像を先に読み込む-->
+  <title>ロバタイマー | 中級</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/timer.css" />
+  <!-- 画像先読み用 -->
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="preload" as="image" href="img/roba_main.png">
   <link rel="preload" as="image" href="img/roba_dokidoki.png">
@@ -18,11 +16,14 @@
   <link rel="preload" as="image" href="img/roba_ganbare.png">
   <link rel="preload" as="image" href="img/rpba_game_over.png">
   <link rel="preload" as="image" href="img/rpba_hatena.png">
+  <style>
+
+  </style>
 </head>
 <body>
   <main>
-    <h1 class="game-title">初級</h1>
-    <!-- 初級のタイマーの仕組みはここから -->
+    <h2 class="game-title">中級</h2>
+    <!-- 中級のタイマーの仕組みはここから -->
     <p id="timer">0.0</p>
     <p id="message">タイマーを6.8秒で止めてね！</p>
 
@@ -37,15 +38,14 @@
       <img id="tryImg" src="img/roba_ganbare.png" alt="がんばれ！" />
       <img id="gameoverImg" src="img/rpba_game_over.png" alt="ゲームオーバー" />
     </div>
-
     <div class="flex-button">
       <button id="tweetBtn">Xで結果をシェア</button>
       <button id="startStopBtn">スタート</button>
       <button id="mainStopBtn" onclick="location.href='/'">戻る</button>
     </div>
-    <script>const mode = "shokyu";</script>
+    <script>const mode = "chukyu";</script>
     <script src="js/timer.js"></script>
-    <!-- 初級のタイマーの仕組みはここまで -->
+    <!-- 中級のタイマーの仕組みはここまで -->
   </main>
 </body>
 </html>
