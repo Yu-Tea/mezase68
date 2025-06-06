@@ -52,8 +52,8 @@ function startTimer() {
       }
     }
 
-    // 初級モードのときの処理
-    if (!hidden) {
+    // 初級モードのときの処理（3秒経過後も更新させる）
+    if (!hidden || mode === "shokyu") {
       display.textContent = elapsed.toFixed(1);
     }
 
