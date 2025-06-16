@@ -37,7 +37,7 @@ function startTimer() {
       if (mode === "chukyu" || mode === "jokyu") {
         document.getElementById("dokidokiImg").style.display = "none";
         document.getElementById("hatenaImg").style.display = "block"; // ← 中級・上級だけ画像変更
-      }   
+      }
       if (mode === "chukyu") {
         const intPart = Math.floor(elapsed);
         display.innerHTML = `<span id="visiblePart">${intPart}.</span><span class="hatena">?</span>`;

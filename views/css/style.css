@@ -65,9 +65,10 @@ h1 {
 }
 
 /* ボタンをデザイン */
-/* 初級・中級ボタンのスタイル #はid属性*/
+/* 初級・中級・上級ボタンのスタイル #はid属性*/
 #beginnerBtn,
-#intermediateBtn {
+#intermediateBtn,
+#advancedBtn {
   background-color: #fac365;
   color: white;
   padding: 10px 30px;
@@ -78,7 +79,8 @@ h1 {
 }
 
 #beginnerBtn:hover,
-#intermediateBtn:hover{
+#intermediateBtn:hover,
+#advancedBtn:hover{
   background-color: #fdb230;
 }
 
